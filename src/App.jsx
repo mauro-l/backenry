@@ -1,8 +1,12 @@
 import "./App.css";
+import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
-  return <>
-  <h1>hola</h1></>;
+  return (
+    <>
+      <ItemListContainer />
+    </>
+  );
 }
 
 export default App;
