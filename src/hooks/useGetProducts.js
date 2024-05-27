@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import showProducts from "../services/product.services";
+import { showProducts } from "../services/Products";
 
-export default function useGetProducts() {
+function useGetProducts() {
   const { category } = useParams();
   const [ready, setReady] = useState(null);
   const [product, setProduct] = useState([]);
@@ -24,3 +24,5 @@ export default function useGetProducts() {
 
   return { ready, product, error };
 }
+
+export default useGetProducts;
