@@ -1,7 +1,7 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "./config";
+import { db } from "../config";
 
-export default async function showProducts(category) {
+export async function showProducts(category) {
   const productsRef = collection(db, "products");
   const products = [];
   const data = category

@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { confirmProducts } from "/src/services";
+
 function TableBody({ items }) {
   return (
     <tbody className="table-group-divider">
@@ -7,6 +10,17 @@ function TableBody({ items }) {
           <th>{item.name}</th>
           <th>{item.category}</th>
           <th>{item.stock}</th>
+          <th>
+            <Link to={"/admin/create"} className="btn btn-primary me-1">
+              ✏️
+            </Link>
+            <button
+              onClick={() => confirmProducts(item.id)}
+              className="btn btn-danger"
+            >
+              🗑️
+            </button>
+          </th>
         </tr>
       ))}
     </tbody>
