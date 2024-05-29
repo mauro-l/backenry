@@ -1,5 +1,5 @@
 import { TableBody, TableHead } from "../../components/common";
-import useGetProducts from "../../hooks/useGetProducts";
+import { useGetProducts } from "/src/hooks";
 import { heads } from "./helpers";
 
 function ProductList() {
@@ -10,11 +10,25 @@ function ProductList() {
   }
 
   return (
-    <section>
-      <article>
+    <section className="container">
+      <article className="col-sm-4">
+        <form className="d-flex input-group my-3" role="search">
+          <span className="input-group-text" id="basic-addon1">
+            🔍
+          </span>
+          <input
+            className="form-control"
+            type="search"
+            placeholder="Codigo, nombre, categoria"
+            aria-label="Search"
+            aria-describedby="basic-addon1"
+          />
+        </form>
+      </article>
+      <article className="d-flex justify-content-between">
         <h2>Listado de productos</h2>
         <h3>
-          Agregar<button>+</button>
+          Agregar<button className="btn btn-danger ms-3">➕</button>
         </h3>
       </article>
       <article>

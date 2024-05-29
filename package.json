@@ -14,13 +14,14 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "firebase": "^10.12.0",
+    "formik": "^2.4.6",
     "husky": "^9.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "sweetalert2": "^11.11.0"
   },
   "devDependencies": {
-    "@rollup/rollup-win32-x64-msvc": "^4.17.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
@@ -34,8 +35,5 @@
     "husky": "^8.0.0",
     "prettier": "^3.2.5",
     "vite": "^5.2.0"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.14.3"
-  }
+  }  
 }
