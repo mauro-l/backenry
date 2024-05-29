@@ -6,14 +6,14 @@ const Carousel = () => {
       data-bs-ride="carousel"
     >
       <div className="carousel-inner ">
-        <div className="carousel-item active" data-bs-interval="10000">
+        <div className="carousel-item active" data-bs-interval="1000">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/ecommerce-caf3e.appspot.com/o/Backery%2F1.png?alt=media&token=57b9cdfd-729e-49dc-b992-f90b6cc6ee3b"
             className="d-block w-100"
             alt="..."
           />
         </div>
-        <div className="carousel-item" data-bs-interval="2000">
+        <div className="carousel-item" data-bs-interval="1000">
           <img
             src="https://d22fxaf9t8d39k.cloudfront.net/4e32a6737b711bf27051326dad9ebff0867e20583329c2e29ff854068b21a18d21167.jpeg"
             className="d-block w-100"

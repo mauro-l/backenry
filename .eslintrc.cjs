@@ -22,6 +22,7 @@ module.exports = {
     "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 0 }],
     "no-console": ["error", { allow: ["debug", "error", "info", "warn"] }],
     "react/jsx-no-target-blank": "off",
+    "react/prop-types": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
