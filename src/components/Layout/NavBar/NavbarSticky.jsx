@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
+
 const NavbarSticky = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top justify-content-center">
+    <nav
+      className="navbar navbar-expand-lg navbar-light  sticky-top justify-content-center"
+      style={{ backgroundColor: "#F3DADD" }}
+    >
       <div>
-        <ul className="nav justify-content-center">
+        <ul className="nav justify-content-center ">
           <li className="nav-item">
             <a className="nav-link" href="#">
               Inicio
@@ -40,9 +45,9 @@ const NavbarSticky = () => {
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
-                  para té
-                </a>
+                <Link to="/products" className="dropdown-item">
+                  Ver todo
+                </Link>
               </li>
             </ul>
           </li>
