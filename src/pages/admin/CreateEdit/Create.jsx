@@ -12,6 +12,7 @@ function Create() {
       ...values,
       price: parseFloat(values.price),
       stock: parseInt(values.stock, 10),
+      category: values.category.toLowerCase(),
     };
 
     Swal.fire({

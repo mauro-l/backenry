@@ -1,7 +1,13 @@
+import { Carrusel } from "../../../components/layout";
+import ItemListContainer from "../Products/ItemListContainer";
+
 function Home() {
   return (
-    <h1>home</h1>
-  )
+    <>
+      <Carrusel />
+      <ItemListContainer />
+    </>
+  );
 }
 
-export default Home
+export default Home;

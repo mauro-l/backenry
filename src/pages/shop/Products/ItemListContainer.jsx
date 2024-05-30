@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import useGetProducts from "/src/hooks/useGetProducts";
+import "./itemList.css";
 
 function ItemListContainer() {
   const { ready, product, error } = useGetProducts();
@@ -12,17 +14,24 @@ function ItemListContainer() {
       {ready &&
         product.map((prod) => (
           <div key={prod.id} className="card d-flex" style={{ width: "18rem" }}>
-            <img
-              src={prod.img}
-              className="card-img-top p-3 rounded-5"
-              style={{ height: "240px" }}
-              alt="..."
-            />
-            <div className="card-body">
-              <a href="#" className="btn btn-primary">
-                Go somewhere
-              </a>
-              <h5 className="card-title">{prod.name}</h5>
+            <Link to={`/products/${prod.id}`}>
+              <img
+                src={prod.img}
+                className="card-img-top p-3 rounded-5"
+                style={{ height: "240px" }}
+                alt="..."
+              />
+            </Link>
+            <div className="card-body text-center">
+              <Link
+                to={`/products/${prod.id}`}
+                className="card-title text-card"
+              >
+                {prod.name}
+              </Link>
+              <p style={{ fontWeight: "bold", color: "#cc486b" }}>
+                ${prod.price}
+              </p>
             </div>
           </div>
         ))}
