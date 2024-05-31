@@ -8,6 +8,9 @@ export async function showProducts(category) {
     ? query(productsRef, where("category", "==", category))
     : productsRef;
   const result = await getDocs(data);
+  if (result.empty) {
+    throw new Error("Products Not found");
+  }
   result.forEach((doc) => {
     products.push({ ...doc.data(), id: doc.id });
   });
