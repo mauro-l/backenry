@@ -1,0 +1,9 @@
+.text-card{
+    text-decoration: none;
+    color: #cc486b;
+    text-transform: capitalize;
+}
+
+.text-card:hover{
+    text-decoration: underline;
+}
