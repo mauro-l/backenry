@@ -1,0 +1,15 @@
+.text-card{
+    text-decoration: none;
+    color: #cc486b;
+    text-transform: capitalize;
+}
+
+.text-card:hover{
+    text-decoration: underline;
+}
+
+.text-pink-bold{
+    color:#cc486b;
+    font-weight: "bold";
+    text-transform: capitalize;
+}
