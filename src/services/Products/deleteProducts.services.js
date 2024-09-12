@@ -1,11 +1,20 @@
-import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../config";
+/* import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../config"; */
 import Swal from "sweetalert2";
 
-const deleteProducts = async (id) => {
+/* const deleteProducts = async (id) => {
   try {
     const productsRef = doc(db, "products", id);
     await deleteDoc(productsRef);
+    return true;
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+}; */
+const deleteProducts = async (id) => {
+  try {
+    await fetch(id);
     return true;
   } catch (err) {
     console.error(err);

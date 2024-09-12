@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 
 const NavbarSticky = () => {
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light  sticky-top justify-content-center"
-      style={{ backgroundColor: "#F3DADD" }}
-    >
+    <nav className="navbar navbar-expand-lg navbar-light  sticky-top justify-content-center navbar-custom">
       <div>
         <ul className="nav justify-content-center ">
           <li className="nav-item">
