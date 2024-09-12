@@ -1,5 +1,5 @@
 import useGetProducts from "/src/hooks/useGetProducts";
-import { Pagination } from "/src/components/layout";
+import { Pagination } from "/src/components/Layout";
 import { useSearchParams } from "react-router-dom";
 import { LoadingCard, Cards, CardsRows } from "../../../components/cards";
 import { AsideFilter, FilterTop } from "/src/components/Product";
