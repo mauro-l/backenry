@@ -1,12 +1,13 @@
-import { addDoc, collection } from "firebase/firestore";
+/* import { addDoc, collection } from "firebase/firestore";
+import { db } from "/src/services/config"; */
 import { categories } from "../helpers";
-import { db } from "/src/services/config";
 import { useFormik } from "formik";
 import Swal from "sweetalert2";
+import postProducts from "../../../services/Products/create.services.js";
 
 function Create() {
   const createProduct = async (values) => {
-    const productRef = collection(db, "products");
+    /* const productRef = collection(db, "products"); */
 
     const transformedValues = {
       ...values,
@@ -17,7 +18,7 @@ function Create() {
 
     Swal.fire({
       title: "Crear Producto",
-      text: `Se creará el siguiente producto, ${values.name} `,
+      text: `Se creará el siguiente producto, ${values.title} `,
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -26,7 +27,8 @@ function Create() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await addDoc(productRef, transformedValues);
+          /* await addDoc(productRef, transformedValues); */
+          const response = await postProducts(transformedValues);
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -56,11 +58,11 @@ function Create() {
 
   const { handleSubmit, handleChange, handleReset, values } = useFormik({
     initialValues: {
-      name: "",
+      title: "",
       category: "",
       price: "",
       stock: "",
-      img: "",
+      thumbnail: "",
       img2: "",
       img3: "",
       img4: "",
@@ -108,9 +110,9 @@ function Create() {
                   id="createName"
                   aria-describedby="basic-addon3 basic-addon4"
                   placeholder="Nombre del producto"
-                  name="name"
+                  name="title"
                   onChange={handleChange}
-                  value={values.name}
+                  value={values.title}
                 />
               </div>
             </div>
@@ -186,9 +188,9 @@ function Create() {
                 id="createImg"
                 className="form-control"
                 placeholder="Imagen principal"
-                name="img"
+                name="thumbnail"
                 onChange={handleChange}
-                value={values.img}
+                value={values.thumbnail}
               />
               <input
                 type="text"
