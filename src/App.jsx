@@ -3,7 +3,7 @@ import "./App.css";
 import ProductList from "./pages/admin/ProductList";
 //import { ItemListContainer } from "./pages/shop/Products";
 import { Home } from "./pages/shop/Home";
-import { Navbar, Footer, NavbarSticky } from "./components/layout";
+import { Navbar, Footer, NavbarSticky } from "./components/Layout";
 //import ProductImage from "./pages/shop/Products/ProductsDetail/ProductImage/ProductImage";
 import { Create, Update } from "./pages/admin/CreateEdit";
 import ProductsPage from "./pages/shop/Products/ProductsPage";

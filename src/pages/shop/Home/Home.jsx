@@ -1,4 +1,4 @@
-import { Carrusel } from "../../../components/layout";
+import { Carrusel } from "../../../components/Layout";
 /* import ItemListContainer from "../Products/ItemListContainer"; */
 
 function Home() {
