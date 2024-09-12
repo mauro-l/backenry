@@ -1,1 +1,1 @@
-export { default as ItemListContainer } from "./ItemListContainer";
+export { default as ProductsPage } from "./ProductsPage";
