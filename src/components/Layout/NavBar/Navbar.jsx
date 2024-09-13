@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg background-color: #FFE6D1">
@@ -16,19 +18,19 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/contact">
                 Contacto
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Crear cuenta
-              </a>
+              <Link className="nav-link" to="/register">
+                Registrarse
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link  className="nav-link" to="/login">
                 Iniciar sesión
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown"></li>
           </ul>

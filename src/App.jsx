@@ -7,6 +7,11 @@ import { Navbar, Footer, NavbarSticky } from "./components/Layout";
 //import ProductImage from "./pages/shop/Products/ProductsDetail/ProductImage/ProductImage";
 import { Create, Update } from "./pages/admin/CreateEdit";
 import ProductsPage from "./pages/shop/Products/ProductsPage";
+import { Login , Register } from "./pages/auth";
+import Contact from "./pages/shop/Contact/Contact.jsx";
+
+
+
 //import ProductDeatilPage from "./pages/shop/Products/ProductsDetail/ProductDetailPage";
 
 function App() {
@@ -17,6 +22,9 @@ function App() {
         <NavbarSticky />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:category" element={<ProductsPage />} />
           <Route path="/admin/products" element={<ProductList />} />

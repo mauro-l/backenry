@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div style={{ backgroundColor: "#F3DADD" }}>
+    <div className="fixed-bottom" style={{ backgroundColor: "#F3DADD" }}>
       <div className="container" style={{ color: "#CC486B" }}>
         <div className="row">
           <div className="container-fluid col-md-6 col-sm-12">
