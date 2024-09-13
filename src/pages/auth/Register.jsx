@@ -1,91 +1,148 @@
+import { useFormik } from "formik";
+import { useState } from "react";
+
 const Register = () => {
+  const [loading, setLoading] = useState(null);
+
+  const registerUser = async (values) => {
+    //validacion de contraseña =
+    const newValues = {
+      name: values.name,
+      password: values.password,
+      lastName: values.lastName,
+      email: values.email,
+      phone: values.phone,
+      birthDate: values.birthDate,
+    };
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "https://backery-ak8h.onrender.com/api/session/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ newValues }),
+        },
+      );
+
+      if (!response) {
+        console.error(response);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("error al crear usuario", error);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const { handleSubmit, handleChange } = useFormik({
+    initialValues: {
+      name: "",
+      password: "",
+      repeatPassword: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      birthDate: "",
+    },
+    onSubmit: (values) => {
+      registerUser(values);
+      /* console.log(values.birthDate);
+      console.log(typeof values.birthDate); */
+    },
+  });
+
   return (
     <div className="container justify-content-center d-flex my-5 p-5">
-      <form className="row g-3">
+      <form onSubmit={handleSubmit} className="row g-3">
         <div className="col-md-6">
-          <label for="inputName" className="form-label">
+          <label htmlFor="inputName" className="form-label">
             Nombre
           </label>
-          <input type="text" className="form-control" id="inputName" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputName"
+            name="name"
+            onChange={handleChange}
+          />
         </div>
         <div className="col-md-6">
-          <label for="inputLastName" className="form-label">
+          <label htmlFor="inputLastName" className="form-label">
             Apellido
           </label>
-          <input type="text" className="form-control" id="inputLastName" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputLastName"
+            name="lastName"
+            onChange={handleChange}
+          />
         </div>
         <div className="col-md-6">
-          <label for="inputEmail4" className="form-label">
+          <label htmlFor="inputEmail4" className="form-label">
             Email
           </label>
-          <input type="email" className="form-control" id="inputEmail4" />
-        </div>
-        <div className="col-md-6">
-          <label for="inputPassword4" className="form-label">
-            Contraseña
-          </label>
-          <input type="password" className="form-control" id="inputPassword4" />
-        </div>
-        {/* <div className="col-12">
-          <label for="inputAddress" className="form-label">
-            Dirección
-          </label>
           <input
-            type="text"
+            type="email"
             className="form-control"
-            id="inputAddress"
-            placeholder="1234 Main St"
+            id="inputEmail4"
+            name="email"
+            onChange={handleChange}
           />
-        </div>
-        <div className="col-12">
-          <label for="inputAddress2" className="form-label">
-            Direccion 2
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="inputAddress2"
-            placeholder="Apartment, studio, or floor"
-          />
-        </div> */}
-        <div className="col-md-6">
-          <label for="inputAddress" className="form-label">
-            Dirección
-          </label>
-          <input type="text" className="form-control" id="inputAddress" />
         </div>
         <div className="col-md-4">
-          <label for="inputPhone" className="form-label">
+          <label htmlFor="inputPhone" className="form-label">
             Teléfono
           </label>
-          <input type="text" className="form-control" id="inputPhone" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputPhone"
+            name="phone"
+            onChange={handleChange}
+          />
         </div>
         <div className="col-md-2">
-          <label for="inputDate" className="form-label">
+          <label htmlFor="inputDate" className="form-label">
             Fecha de nacimiento
           </label>
-          <input type="text" className="form-control" id="inputDate" />
+          <input
+            type="date"
+            className="form-control"
+            id="inputDate"
+            name="birthDate"
+            onChange={handleChange}
+          />
         </div>
         <div className="col-md-6">
-          <label for="inputCity" className="form-label">
-            Ciudad
+          <label htmlFor="inputPassword4" className="form-label">
+            Contraseña
           </label>
-          <input type="text" className="form-control" id="inputCity" />
+          <input
+            type="password"
+            className="form-control"
+            id="inputPassword4"
+            name="password"
+            onChange={handleChange}
+          />
         </div>
-        <div className="col-md-4">
-          <label for="inputState" className="form-label">
-            Provincia
+        <div className="col-md-6">
+          <label htmlFor="inputRepeatPassword" className="form-label">
+            Repetir contraseña
           </label>
-          <select id="inputState" className="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div className="col-md-2">
-          <label for="inputZip" className="form-label">
-            Código Postal
-          </label>
-          <input type="text" className="form-control" id="inputZip" />
+          <input
+            type="password"
+            className="form-control"
+            id="inputRepeatPassword"
+            name="repeatPassword"
+            onChange={handleChange}
+          />
         </div>
         <div className="col-12">
           <div className="form-check">
@@ -100,9 +157,20 @@ const Register = () => {
           </div>
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-primary">
-            Registrarme
-          </button>
+          {loading ? (
+            <button className="btn btn-primary" type="button" disabled>
+              <span
+                className="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              Loading...
+            </button>
+          ) : (
+            <button type="submit" className="btn btn-primary">
+              Registrarme
+            </button>
+          )}
         </div>
       </form>
     </div>
