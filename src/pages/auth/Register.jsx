@@ -5,17 +5,26 @@ const Register = () => {
   const [loading, setLoading] = useState(null);
 
   const registerUser = async (values) => {
-    //validacion de contraseña =
+
+     //validacion de contraseña =
+    if (values.password !== values.repeatPassword) {
+      alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+      return;
+    }
+
+   //formato requerido por el backend 
     const newValues = {
-      name: values.name,
+      first_name: values.name,
       password: values.password,
-      lastName: values.lastName,
+      last_name: values.lastName,
       email: values.email,
       phone: values.phone,
-      birthDate: values.birthDate,
+      birthdate: values.birthDate,
     };
+
     try {
       setLoading(true);
+      console.log(typeof newValues.birthdate);
       const response = await fetch(
         "https://backery-ak8h.onrender.com/api/session/register",
         {
@@ -26,11 +35,13 @@ const Register = () => {
           body: JSON.stringify({ newValues }),
         },
       );
-
+      console.log("pasa por acá");
       if (!response) {
         console.error(response);
+        
       }
       const data = await response.json();
+      console.log("Y pasa por acá", data);
       return data;
     } catch (error) {
       console.error("error al crear usuario", error);
