@@ -10,7 +10,7 @@ const Login = () => {
   },
   onSubmit:(values) =>{
 console.log(values)
-alert("hola")
+alert("holas")
   }
   })  
   
