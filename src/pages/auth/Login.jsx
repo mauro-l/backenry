@@ -3,12 +3,19 @@ import { useFormik } from "formik";
 
 const Login = () => {
 
-  const loginUser = async (params) => {
-    
+  const {handlesubmit} = useFormik({
+    initialValues:{
+    email:'',
+    password:'',
+  },
+  onSubmit:(values) =>{
+console.log(values)
   }
+  })  
+  
   return (
     <div className="container justify-content-center d-flex my-5 p-5">
-      <form className="col-6">
+      <form  onSubmit={handlesubmit} className="col-6">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email
