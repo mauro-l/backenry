@@ -1,22 +1,24 @@
 import { useFormik } from "formik";
 
-
 const Login = () => {
+  const handleLogins = (values) => {
+    console.log(values);
+    alert("info enviada");
+  };
 
-  const {handlesubmit} = useFormik({
-    initialValues:{
-    email:'',
-    password:'',
-  },
-  onSubmit:(values) =>{
-console.log(values)
-alert("holas")
-  }
-  })  
-  
+  const { handleSubmit, handleChange } = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      handleLogins(values);
+    },
+  });
+
   return (
     <div className="container justify-content-center d-flex my-5 p-5">
-      <form  onSubmit={handlesubmit} className="col-6">
+      <form onSubmit={handleSubmit} className="col-6">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email
@@ -26,6 +28,8 @@ alert("holas")
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            name="email"
+            onChange={handleChange}
           />
           <div id="emailHelp" className="form-text">
             Nunca compartiremos su correo electrónico con nadie más.
@@ -39,6 +43,8 @@ alert("holas")
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            name="password"
+            onChange={handleChange}
           />
         </div>
         <div className="mb-3 form-check">

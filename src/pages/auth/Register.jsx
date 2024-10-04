@@ -5,14 +5,13 @@ const Register = () => {
   const [loading, setLoading] = useState(null);
 
   const registerUser = async (values) => {
-
-     //validacion de contraseña =
+    //validacion de contraseña =
     if (values.password !== values.repeatPassword) {
       alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
       return;
     }
 
-   //formato requerido por el backend 
+    //formato requerido por el backend
     const newValues = {
       first_name: values.name,
       password: values.password,
@@ -24,7 +23,7 @@ const Register = () => {
 
     try {
       setLoading(true);
-      console.log(typeof newValues.birthdate);
+      console.log(newValues);
       const response = await fetch(
         "https://backery-ak8h.onrender.com/api/session/register",
         {
@@ -32,13 +31,12 @@ const Register = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ newValues }),
+          body: JSON.stringify(newValues),
         },
       );
       console.log("pasa por acá");
       if (!response) {
         console.error(response);
-        
       }
       const data = await response.json();
       console.log("Y pasa por acá", data);
@@ -162,7 +160,7 @@ const Register = () => {
               type="checkbox"
               id="gridCheck"
             />
-            <label className="form-check-label" for="gridCheck">
+            <label className="form-check-label" htmlFor="gridCheck">
               Acepto términos y condiciones
             </label>
           </div>
